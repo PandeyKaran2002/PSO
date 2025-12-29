@@ -367,10 +367,10 @@ def run_pso(csv_path):
     print("Ko (Temp offset 3×1):")
     print(Ko, "\n")
 
-'''
+
     # RMSE vs Iteration
 
-    plt.figure(figsize=(8,4))
+    '''plt.figure(figsize=(8,4))
     plt.plot(swarm.history, label="Global Best RMSE")
     plt.xlabel("Iteration")
     plt.ylabel("RMSE (µT)")
@@ -629,5 +629,6 @@ def run_pso(csv_path):
 
 if (__name__ == "__main__"):
     run_pso("full_data.csv")
+
 
 
