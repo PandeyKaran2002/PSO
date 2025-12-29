@@ -139,7 +139,7 @@ def refine_least_squares(initial_params, B_meas, B_ref, T):
 
     return refined_params, refined_rmse
 
-def plot_axis_timeseries(B_meas, B_ref, B_cal_pso, B_cal_ls):
+'''def plot_axis_timeseries(B_meas, B_ref, B_cal_pso, B_cal_ls):
     axes_names = ["X", "Y", "Z"]
     N = len(B_meas)
     x = np.arange(N)
@@ -164,9 +164,9 @@ def plot_axis_timeseries(B_meas, B_ref, B_cal_pso, B_cal_ls):
 
     plt.tight_layout()
     plt.savefig("After/Axis_Timeseries.png", dpi=300, bbox_inches="tight")
-    plt.close()
+    plt.close()'''
 
-def plot_all_in_one(B_meas, B_ref, B_cal_pso, B_cal_ls):
+'''def plot_all_in_one(B_meas, B_ref, B_cal_pso, B_cal_ls):
     axes_names = ["X", "Y", "Z"]
     N = len(B_meas)
     x = np.arange(N)
@@ -309,7 +309,7 @@ def plot_four_panel_summary(B_meas, B_ref, B_cal_pso, B_cal_ls):
 
     plt.tight_layout(rect=[0, 0, 1, 0.97])
     plt.savefig("After/Four_Panel_Summary.png", dpi=300, bbox_inches="tight")
-    plt.close()
+    plt.close()'''
 
 
 
@@ -367,7 +367,7 @@ def run_pso(csv_path):
     print("Ko (Temp offset 3×1):")
     print(Ko, "\n")
 
-
+'''
     # RMSE vs Iteration
 
     plt.figure(figsize=(8,4))
@@ -461,7 +461,7 @@ def run_pso(csv_path):
     plt.ylabel("Velocity Magnitude")
     plt.grid(True)
     plt.savefig("Before/Velocity Evaluation Before LS.png", dpi=300, bbox_inches="tight")
-    plt.close()
+    plt.close()'''
 
 
     # ---- Least Squares Refinement ----
@@ -480,7 +480,7 @@ def run_pso(csv_path):
     print("Refined Parameters:")
     print(refined_params)
 
-    print("\nGenerating plots using refined parameters after Least Squares...")
+    '''print("\nGenerating plots using refined parameters after Least Squares...")'''
 
     print("\n===== COMPUTATION TIME SUMMARY =====")
     print(f"PSO time: {pso_time:.3f} seconds")
@@ -495,7 +495,7 @@ def run_pso(csv_path):
 
     res_refined = B_cal_refined - B_ref
 
-    plt.figure(figsize = (12, 4))
+    '''plt.figure(figsize = (12, 4))
     axes = ["X", "Y", "Z"]
 
     for i in range(3):
@@ -551,7 +551,7 @@ def run_pso(csv_path):
     plot_axis_timeseries(B_meas, B_ref, B_cal, B_cal_refined)
     plot_all_in_one(B_meas, B_ref, B_cal, B_cal_refined)
     plot_combined_all_axes(B_meas, B_ref, B_cal, B_cal_refined)
-    plot_four_panel_summary(B_meas, B_ref, B_cal, B_cal_refined)
+    plot_four_panel_summary(B_meas, B_ref, B_cal, B_cal_refined)'''
 
 
 
@@ -575,13 +575,13 @@ def run_pso(csv_path):
     }
 
 
-    os.makedirs("results", exist_ok = True)
+    '''os.makedirs("results", exist_ok = True)
     save_path = "results/calibration_params.json"
 
     with open(save_path, "w") as f:
         json.dump(results, f, indent = 4)
 
-    print(f"\nSaved calibrated parameters to: {save_path}")
+    print(f"\nSaved calibrated parameters to: {save_path}")'''
 
 
     # Parameters After Refinement
@@ -612,7 +612,7 @@ def run_pso(csv_path):
 
     return best_pos, best_cost, refined_params, refined_rmse
 
-def plot_particles_2d(swarm, dim_x=0, dim_y=1):
+'''def plot_particles_2d(swarm, dim_x=0, dim_y=1):
     xs = [p.position[dim_x] for p in swarm.particles]
     ys = [p.position[dim_y] for p in swarm.particles]
 
@@ -623,10 +623,11 @@ def plot_particles_2d(swarm, dim_x=0, dim_y=1):
     plt.title("Particle distribution in 2D parameter space")
     plt.grid(True)
     return plt
-    #plt.show()
+    #plt.show()'''
 
 
 
 if (__name__ == "__main__"):
     run_pso("full_data.csv")
+
 
