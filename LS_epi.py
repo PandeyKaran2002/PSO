@@ -1,10 +1,5 @@
 """
-This script does the following:
-1. Loads real measurement data from CSV.
-2. Initializes the CalibrationModel.
-3. Creates the cost() wrapper.
-4. Configures and runs PSO.
-5. Prints and saves optimization results.
+This script implements PSO+LS, LS+PSO, and LS-alone models. Also provides epistemic uncertainties.
 
 """
 
@@ -487,5 +482,6 @@ if (__name__ == "__main__"):
 
     print("\n===== LS ONLY =====")
     run_ls_only_multiple("full_data.csv")
+
 
 
